@@ -7,6 +7,7 @@ public class Main {
         WebDriver driver = new ChromeDriver();
         //Card To Card
         driver.get("https://tbcpay.ge/ka/transfers");
+        String webPage = driver.getCurrentUrl();
         driver.manage().window().maximize();
         driver.findElement(By.cssSelector("#cardToCard_money_input")).sendKeys("500");
         Thread.sleep(500);
@@ -14,22 +15,24 @@ public class Main {
         Thread.sleep(500);
         driver.findElement(By.cssSelector("#mount > main > div > div > section > section.order-first.flex.max-w-xs.flex-col.items-center.gap-5.xl\\:order-none > button")).click();
         Thread.sleep(1000);
-        driver.get("https://tbcpay.ge/ka/transfers");
+
         //Mobile number
-        driver.get("https://tbcpay.ge/ka/transfers");
+        driver.get(webPage);
         driver.findElement(By.cssSelector("#mobileTransfer_money_input")).sendKeys("500");
         Thread.sleep(500);
         driver.findElement(By.cssSelector("#mobileTransfer_input_input")).sendKeys("599984408");
         Thread.sleep(500);
         driver.findElement(By.cssSelector("#mobileTransfer_submit_button")).click();
         Thread.sleep(1000);
-        driver.get("https://tbcpay.ge/ka/transfers");
+
+        driver.get(webPage);
         driver.findElement(By.cssSelector("#toBank_money_input")).sendKeys("5000");
         Thread.sleep(500);
         driver.findElement(By.cssSelector("#toBank_input_input")).sendKeys("00000000000");
         driver.findElement(By.cssSelector("#toBank_submit_button")).click();
         Thread.sleep(1000);
-        driver.get("https://tbcpay.ge/ka/transfers");
+
+        driver.get(webPage);
         driver.findElement(By.cssSelector("#IBAN_money_input")).sendKeys("5000");
         Thread.sleep(500);
         driver.findElement(By.cssSelector("#IBAN_iban_input")).click();
@@ -38,6 +41,5 @@ public class Main {
         driver.findElement(By.cssSelector("#IBAN_submit_button")).click();
         Thread.sleep(5000);
         driver.quit();
-        
     }
 }
